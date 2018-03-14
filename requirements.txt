@@ -1,0 +1,12 @@
+p4python
+
+# dev
+watchdog
+pyyaml
+
+# test
+flake8
+isort
+pytest
+pytest-coverage
+pytest-spec

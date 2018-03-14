@@ -1,0 +1,23 @@
+# development
+*.sublime-workspace
+*.swp
+*.swap
+
+# compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtualenv
+.venv
+venv
+
+# test
+.coverage
+*.log
+.cache
+
+# packaging
+build
+dist
+.egg-info

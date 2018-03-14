@@ -1,5 +1,5 @@
-Clean-Workspace
-===============
+P4-Clean-Workspace
+==================
 
 Clean Perforce data workspaces
 

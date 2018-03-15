@@ -28,6 +28,7 @@ help: ## this help text
 
 # environment
 venv: ## create virtual environment
+	python -m pip install virtualenv
 	$(virtualenv_path) venv --python $(python_path)
 
 install: ## install pip requirements

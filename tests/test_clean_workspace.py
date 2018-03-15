@@ -35,7 +35,7 @@ class TestCleanWorkspace(unittest.TestCase):
             {
                 "comment": "expcted project",
                 "input": "foo",
-                "result": "{}-foo-data".format(os.environ['HOSTNAME'])
+                "result": "{}-foo-data".format(os.getenv('HOSTNAME', os.getenv('COMPUTERNAME').lower()))
             }, {
                 "comment": "expcted project",
                 "input": "bar",
@@ -49,7 +49,7 @@ class TestCleanWorkspace(unittest.TestCase):
             }, {
                 "comment": "empty data",
                 "input": "",
-                "result": "{}--data".format(os.environ['HOSTNAME'])
+                "result": "{}--data".format(os.getenv('HOSTNAME', os.getenv('COMPUTERNAME').lower()))
             }
         ]
 

@@ -1,0 +1,38 @@
+node('python2.7') {
+    try {
+        stage('Initialize') {
+            checkout scm
+        }
+
+        stage('Environment') {
+            println 'Setup Environment'
+
+            if (isUnix()) {
+                sh 'make venv'
+                sh 'make install'
+            } else {
+                bat 'make venv'
+                bat 'make install'
+            }
+        }
+
+        stage('Test') {
+            println 'Test all the things'
+
+            timeout(15) {
+                if (isUnix()) {
+                    sh 'make test'
+                } else {
+                    bat 'make test'
+                }
+            }
+        }
+    } catch (e) {
+        println 'build failed'
+        println e
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        println "notify source"
+    }
+}

@@ -1,5 +1,5 @@
 node('python2.7') {
-    try {
+    gitlabCommitStatus('sm-gitlab') {
         stage('Initialize') {
             checkout scm
         }
@@ -27,12 +27,5 @@ node('python2.7') {
                 }
             }
         }
-    } catch (e) {
-        println 'build failed'
-        println e
-        currentBuild.result = 'FAILURE'
-        throw e
-    } finally {
-        println "notify source"
     }
 }

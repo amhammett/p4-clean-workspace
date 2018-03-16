@@ -20,10 +20,12 @@ node('python2.7') {
             println 'Test all the things'
 
             timeout(15) {
-                if (isUnix()) {
-                    sh 'make test'
-                } else {
-                    bat 'make test'
+                ansiColor('xterm') {
+                    if (isUnix()) {
+                        sh 'make test'
+                    } else {
+                        bat 'make test'
+                    }
                 }
             }
         }
